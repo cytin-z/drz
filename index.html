@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My IP</title>
+</head>
+<body>
+
+    <h1>Your IP address is:</h1>
+    <p id="ip">Loading...</p>
+
+    <script>
+        fetch("https://api.ipify.org?format=json")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("ip").textContent = data.ip;
+            })
+            .catch(() => {
+                document.getElementById("ip").textContent = "Unable to find IP";
+            });
+    </script>
+
+</body>
+</html>
